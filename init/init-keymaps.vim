@@ -336,3 +336,38 @@ endif
 "----------------------------------------------------------------------
 nnoremap <silent> <M-m> :MultipleCursorsFind <C-R>/<CR>
 vnoremap <silent> <M-m> :MultipleCursorsFind <C-R>/<CR>
+
+
+"----------------------------------------------------------------------
+" For preview
+"----------------------------------------------------------------------
+noremap <silent><M-:> :PreviewClose<cr>
+noremap <silent><tab>; :PreviewGoto edit<cr>
+noremap <silent><tab>: :PreviewGoto tabe<cr>
+
+if has('autocmd')
+	function! s:quickfix_keymap()
+		if &buftype != 'quickfix'
+			return
+		endif
+		nnoremap <silent><buffer> p :call quickui#tools#preview_quickfix()<cr>
+		nnoremap <silent><buffer> P :PreviewClose<cr>
+		nnoremap <silent><buffer> q :close<cr>
+		setlocal nonumber
+	endfunc
+	function! s:insert_leave()
+		if get(g:, 'echodoc#enable_at_startup') == 0
+			set showmode
+		endif
+	endfunc
+	augroup AscQuickfix
+		autocmd!
+		autocmd FileType qf call s:quickfix_keymap()
+		autocmd InsertLeave * call s:insert_leave()
+		" autocmd InsertLeave * set showmode
+	augroup END
+endif
+
+nnoremap <silent><m-a> :PreviewSignature<cr>
+inoremap <silent><m-a> <c-\><c-o>:PreviewSignature<cr>
+

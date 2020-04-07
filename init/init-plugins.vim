@@ -53,6 +53,9 @@ Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 " Diff 增强，支持 histogram / patience 等更科学的 diff 算法
 Plug 'chrisbra/vim-diff-enhanced'
 
+" https://github.com/skywind3000/vim-quickui
+Plug 'skywind3000/vim-quickui'
+
 " True Sublime Text style multiple selections for Vim
 Plug 'terryma/vim-multiple-cursors'
 let g:multi_cursor_start_word_key      = 'gh'
@@ -431,25 +434,25 @@ if index(g:bundle_group, 'leaderf') >= 0
 		Plug 'Yggdroot/LeaderF'
 
 		" CTRL+p 打开文件模糊匹配
-		let g:Lf_ShortcutF = '<c-p>'
+		let g:Lf_ShortcutF = '<c-o>'
 
 		" ALT+n 打开 buffer 模糊匹配
-		let g:Lf_ShortcutB = '<m-n>'
+		let g:Lf_ShortcutB = '<m-b>'
 
 		" CTRL+n 打开最近使用的文件 MRU，进行模糊匹配
-		noremap <c-n> :LeaderfMru<cr>
+		noremap <m-p> :LeaderfMru<cr>
 
 		" ALT+p 打开函数列表，按 i 进入模糊匹配，ESC 退出
-		noremap <m-p> :LeaderfFunction!<cr>
+		noremap <m-m> :LeaderfFunction!<cr>
 
 		" ALT+SHIFT+p 打开 tag 列表，i 进入模糊匹配，ESC退出
-		noremap <m-P> :LeaderfBufTag!<cr>
+		noremap <m-t> :LeaderfBufTag!<cr>
 
 		" ALT+n 打开 buffer 列表进行模糊匹配
-		noremap <m-n> :LeaderfBuffer<cr>
+		noremap <m-b> :LeaderfBuffer<cr>
 
 		" ALT+m 全局 tags 模糊匹配
-		noremap <m-m> :LeaderfTag<cr>
+		noremap <m-,> :LeaderfTag<cr>
 
 		" 最大历史文件保存 2048 个
 		let g:Lf_MruMaxFiles = 2048
