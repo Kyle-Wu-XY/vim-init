@@ -330,14 +330,6 @@ else
 				\ '<root>' <cr>
 endif
 
-
-"----------------------------------------------------------------------
-" For MultipleCursorsFind
-"----------------------------------------------------------------------
-nnoremap <silent> <M-m> :MultipleCursorsFind <C-R>/<CR>
-vnoremap <silent> <M-m> :MultipleCursorsFind <C-R>/<CR>
-
-
 "----------------------------------------------------------------------
 " For preview
 "----------------------------------------------------------------------
@@ -371,4 +363,9 @@ if has('autocmd')
 		" autocmd InsertLeave * set showmode
 	augroup END
 endif
+
+"----------------------------------------------------------------------
+" For Easily toggle between *.c* and *.h* buffers.
+"----------------------------------------------------------------------
+noremap <m-o> :A<cr>
 

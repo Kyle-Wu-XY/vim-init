@@ -67,6 +67,10 @@ let g:multi_cursor_prev_key            = 'k'
 let g:multi_cursor_skip_key            = 'l'
 let g:multi_cursor_quit_key            = '<Esc>'
 
+" Easily toggle between *.c* and *.h* buffers.
+Plug 'LucHermitte/lh-vim-lib'
+Plug 'LucHermitte/alternate-lite'
+
 "----------------------------------------------------------------------
 " Dirvish 设置：自动排序并隐藏文件，同时定位到相关文件
 " 这个排序函数可以将目录排在前面，文件排在后面，并且按照字母顺序排序
