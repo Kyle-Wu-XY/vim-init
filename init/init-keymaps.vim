@@ -369,3 +369,17 @@ endif
 "----------------------------------------------------------------------
 noremap <m-o> :A<cr>
 
+"----------------------------------------------------------------------
+" For swoop
+"----------------------------------------------------------------------
+let g:swoopUseDefaultKeyMap = 0
+let g:swoopIgnoreCase = 1
+let g:swoopPatternSpaceInsertsWildcard = 1
+let g:swoopAutoInserMode = 1
+"let g:swoopHighlight = ["hi! link SwoopBufferLineHi Warning", "hi! link SwoopPatternHi Error"]
+
+nnoremap <Leader>ss :call Swoop()<CR>
+vnoremap <Leader>ss :call SwoopSelection()<CR>
+nnoremap <Leader>s, :call SwoopMulti()<CR>
+vnoremap <Leader>s, :call SwoopMultiSelection()<CR>
+
