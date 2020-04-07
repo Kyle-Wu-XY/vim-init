@@ -341,7 +341,11 @@ vnoremap <silent> <M-m> :MultipleCursorsFind <C-R>/<CR>
 "----------------------------------------------------------------------
 " For preview
 "----------------------------------------------------------------------
-noremap <silent><M-:> :PreviewClose<cr>
+noremap <silent><m-;> :call quickui#tools#preview_tag('')<cr>
+noremap <silent><m-:> :PreviewClose<cr>
+nnoremap <silent><m-a> :PreviewSignature<cr>
+inoremap <silent><m-a> <c-\><c-o>:PreviewSignature<cr>
+
 noremap <silent><tab>; :PreviewGoto edit<cr>
 noremap <silent><tab>: :PreviewGoto tabe<cr>
 
@@ -367,7 +371,4 @@ if has('autocmd')
 		" autocmd InsertLeave * set showmode
 	augroup END
 endif
-
-nnoremap <silent><m-a> :PreviewSignature<cr>
-inoremap <silent><m-a> <c-\><c-o>:PreviewSignature<cr>
 
