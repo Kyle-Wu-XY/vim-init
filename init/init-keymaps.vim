@@ -331,3 +331,8 @@ else
 endif
 
 
+"----------------------------------------------------------------------
+" For MultipleCursorsFind
+"----------------------------------------------------------------------
+nnoremap <silent> <M-m> :MultipleCursorsFind <C-R>/<CR>
+vnoremap <silent> <M-m> :MultipleCursorsFind <C-R>/<CR>
