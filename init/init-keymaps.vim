@@ -399,7 +399,7 @@ inoremap <m-a> <c-o>
 inoremap <m-s> <c-i>
 
 "----------------------------------------------------------------------
-" For jump history
+" For gtags-cscope interfacs
 "----------------------------------------------------------------------
 let g:gutentags_plus_nomap = 1
 " Find symbol (reference) under cursor
@@ -423,3 +423,13 @@ noremap <silent> <leader>gd :GscopeFind d <C-R><C-W><cr>
 noremap <silent> <leader>ga :GscopeFind a <C-R><C-W><cr>
 " Find current word in ctags database
 noremap <silent> <leader>gz :GscopeFind z <C-R><C-W><cr>
+
+
+"----------------------------------------------------------------------
+" For ripgrep
+"----------------------------------------------------------------------
+" grep on the fly, support both fuzzy and regex
+noremap <C-F> :Leaderf rg<cr>
+" search visually selected text literally, don't quit LeaderF after accepting an entry
+xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR>
+
