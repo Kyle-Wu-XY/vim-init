@@ -525,16 +525,16 @@ if index(g:bundle_group, 'leaderf') >= 0
 		let g:ctrlp_working_path = 0
 
 		" CTRL+p 打开文件模糊匹配
-		noremap <c-p> :CtrlP<cr>
+		noremap <c-o> :CtrlP<cr>
 
 		" CTRL+n 打开最近访问过的文件的匹配
-		noremap <c-n> :CtrlPMRUFiles<cr>
+		noremap <m-p> :CtrlPMRUFiles<cr>
 
 		" ALT+p 显示当前文件的函数列表
-		noremap <m-p> :CtrlPFunky<cr>
+		noremap <m-m> :CtrlPFunky<cr>
 
 		" ALT+n 匹配 buffer
-		noremap <m-n> :CtrlPBuffer<cr>
+		noremap <m-b> :CtrlPBuffer<cr>
 	endif
 endif
 

@@ -15,6 +15,13 @@
 "======================================================================
 " vim: set ts=4 sw=4 tw=78 noet :
 
+"----------------------------------------------------------------------
+" With a map leader it's possible to do extra key combinations
+"----------------------------------------------------------------------
+let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
+let maplocalleader = "\<Space>"
+let g:maplocalleader = "\<Space>"
 
 "----------------------------------------------------------------------
 " INSERT 模式下使用 EMACS 键位
@@ -383,3 +390,36 @@ vnoremap <Leader>ss :call SwoopSelection()<CR>
 nnoremap <Leader>s, :call SwoopMulti()<CR>
 vnoremap <Leader>s, :call SwoopMultiSelection()<CR>
 
+"----------------------------------------------------------------------
+" For jump history
+"----------------------------------------------------------------------
+nnoremap <m-a> <c-o>
+nnoremap <m-s> <c-i>
+inoremap <m-a> <c-o>
+inoremap <m-s> <c-i>
+
+"----------------------------------------------------------------------
+" For jump history
+"----------------------------------------------------------------------
+let g:gutentags_plus_nomap = 1
+" Find symbol (reference) under cursor
+noremap <silent> <leader>gs :GscopeFind s <C-R><C-W><cr>
+" Find symbol definition under cursor
+noremap <silent> <leader>gg :GscopeFind g <C-R><C-W><cr>
+noremap <silent> <m-g> :GscopeFind g <C-R><C-W><cr>
+" Functions calling this function
+noremap <silent> <leader>gc :GscopeFind c <C-R><C-W><cr>
+" Find text string under cursor
+noremap <silent> <leader>gt :GscopeFind t <C-R><C-W><cr>
+" Find egrep pattern under cursor
+noremap <silent> <leader>ge :GscopeFind e <C-R><C-W><cr>
+" Find file name under cursor
+noremap <silent> <leader>gf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
+" Find files #including the file name under cursor
+noremap <silent> <leader>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
+" Functions called by this function
+noremap <silent> <leader>gd :GscopeFind d <C-R><C-W><cr>
+" Find places where current symbol is assigned
+noremap <silent> <leader>ga :GscopeFind a <C-R><C-W><cr>
+" Find current word in ctags database
+noremap <silent> <leader>gz :GscopeFind z <C-R><C-W><cr>
