@@ -433,3 +433,104 @@ noremap <C-F> :Leaderf rg<cr>
 " search visually selected text literally, don't quit LeaderF after accepting an entry
 xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR>
 
+"----------------------------------------------------------------------
+" For leaderf-filer
+"----------------------------------------------------------------------
+" normal mode
+let g:Lf_FilerUseDefaultNormalMap = 0
+let g:Lf_FilerNormalMap = {
+\   'h':             'open_parent',
+\   'l':             'open_current',
+\   '<C-h>':         'open_parent',
+\   '<C-l>':         'open_current',
+\   '~':             'goto_root_marker_dir',
+\   '.':             'toggle_hidden_files',
+\   'j':             'down',
+\   'k':             'up',
+\   '<F1>':          'toggle_help',
+\   '<Tab>':         'switch_insert_mode',
+\   'i':             'switch_insert_mode',
+\   'p':             'preview',
+\   'q':             'quit',
+\   '<C-q>':         'quit',
+\   'o':             'accept',
+\   '<CR>':          'accept',
+\   '<C-s>':         'accept_horizontal',
+\   '<C-v>':         'accept_vertical',
+\   '<C-t>':         'accept_tab',
+\   '<C-Up>':        'page_up_in_preview',
+\   '<C-Down>':      'page_down_in_preview',
+\   '<Esc>':         'close_preview_popup',
+\   's':             'add_selections',
+\   '<C-a>':         'select_all',
+\   '<F3>':          'clear_selections',
+\   'K':             'mkdir',
+\   'R':             'rename',
+\   'C':             'copy',
+\   'P':             'paste',
+\   'O':             'create_file',
+\   '@':             'change_directory',
+\}
+
+" insert mode
+let g:Lf_FilerUseDefaultInsertMap = 0
+let g:Lf_FilerInsertMap = {
+\   '<C-h>':        'open_parent_or_backspace',
+\   '<C-l>':        'open_current',
+\   '<C-y>':        'toggle_hidden_files',
+\   '<C-g>':        'goto_root_marker_dir',
+\   '<Esc>':        'quit',
+\   '<C-c>':        'quit',
+\   '<CR>':         'accept',
+\   '<C-s>':        'accept_horizontal',
+\   '<C-v>':        'accept_vertical',
+\   '<C-t>':        'accept_tab',
+\   '<C-r>':        'toggle_regex',
+\   '<BS>':         'backspace',
+\   '<C-u>':        'clear_line',
+\   '<C-w>':        'delete_left_word',
+\   '<C-d>':        'delete',
+\   '<C-o>':        'paste',
+\   '<C-a>':        'home',
+\   '<C-e>':        'end',
+\   '<C-b>':        'left',
+\   '<C-f>':        'right',
+\   '<C-j>':        'down',
+\   '<C-k>':        'up',
+\   '<C-p>':        'prev_history',
+\   '<C-n>':        'next_history',
+\   '<C-q>':        'preview',
+\   '<Tab>':        'switch_normal_mode',
+\   '<C-Up>':       'page_up_in_preview',
+\   '<C-Down>':     'page_down_in_preview',
+\   '<ScroollWhellUp>': 'up3',
+\   '<ScroollWhellDown>': 'down3',
+\}
+
+" Customize normal mode mapping using g:Lf_NormalMap
+let g:Lf_NormalMap = get(g:, 'Lf_NormalMap', {})
+let g:Lf_NormalMap = {'Filer':   [['B', ':LeaderfBookmark<CR>']]}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugin 'mark'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:mwDefaultHighlightingPalette = 'maximum'
+"<Leader>m               Mark the word under the cursor
+"[N]<Leader>m            With [N], mark the word under the cursor with the named highlight group "[N].
+"[N]<Leader>r            Manually input a regular expression to mark.
+"<Leader>n               Clear the mark under the cursor.
+"[N]<Leader>n            Clear the marks represented by highlight group [N].
+"[count]<Leader>*        Jump to the next occurrence of current mark.
+"[count]<Leader>/        Jump to the next occurrence of ANY mark.
+
+""""""""""""""""""""""""""""""""""""""""
+" => Plugin 'vim-multiple-cursors'
+""""""""""""""""""""""""""""""""""""""""
+let g:multi_cursor_start_word_key      = 'gh'
+let g:multi_cursor_select_all_word_key = 'ggh'
+let g:multi_cursor_start_key           = 'g<C-n>'
+let g:multi_cursor_select_all_key      = 'g<A-n>'
+let g:multi_cursor_next_key            = 'j'
+let g:multi_cursor_prev_key            = 'k'
+let g:multi_cursor_skip_key            = 'l'
+let g:multi_cursor_quit_key            = '<Esc>'

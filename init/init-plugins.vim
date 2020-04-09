@@ -58,19 +58,12 @@ Plug 'skywind3000/vim-quickui'
 
 " True Sublime Text style multiple selections for Vim
 Plug 'terryma/vim-multiple-cursors'
-let g:multi_cursor_start_word_key      = 'gh'
-let g:multi_cursor_select_all_word_key = 'ghA'
-let g:multi_cursor_start_key           = 'g<C-n>'
-let g:multi_cursor_select_all_key      = 'g<A-n>'
-let g:multi_cursor_next_key            = 'j'
-let g:multi_cursor_prev_key            = 'k'
-let g:multi_cursor_skip_key            = 'l'
-let g:multi_cursor_quit_key            = '<Esc>'
 
 " Easily toggle between *.c* and *.h* buffers.
 Plug 'LucHermitte/lh-vim-lib'
 Plug 'LucHermitte/alternate-lite'
 
+" find and replace occurrences in many buffers being aware of the context
 Plug 'pelodelfuego/vim-swoop'
 
 "----------------------------------------------------------------------
@@ -298,7 +291,6 @@ if index(g:bundle_group, 'filetypes') >= 0
 	Plug 'jceb/vim-orgmode', { 'for': 'org' }
 endif
 
-
 "----------------------------------------------------------------------
 " airline
 "----------------------------------------------------------------------
@@ -438,6 +430,7 @@ if index(g:bundle_group, 'leaderf') >= 0
 	" 如果 vim 支持 python 则启用  Leaderf
 	if has('python') || has('python3')
 		Plug 'Yggdroot/LeaderF'
+		Plug 'tamago324/LeaderF-filer'
 
 		" CTRL+p 打开文件模糊匹配
 		let g:Lf_ShortcutF = '<c-o>'
