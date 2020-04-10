@@ -16,7 +16,7 @@
 if !exists('g:bundle_group')
 	let g:bundle_group = ['basic', 'tags', 'enhanced', 'filetypes', 'textobj']
 	let g:bundle_group += ['tags', 'airline', 'nerdtree', 'ale', 'echodoc']
-	let g:bundle_group += ['leaderf']
+	let g:bundle_group += ['leaderf', 'neoformat']
 endif
 
 
@@ -529,6 +529,16 @@ if index(g:bundle_group, 'leaderf') >= 0
 		" ALT+n 匹配 buffer
 		noremap <m-b> :CtrlPBuffer<cr>
 	endif
+endif
+
+if index(g:bundle_group, 'neoformat') >= 0
+	Plug 'sbdchd/neoformat'
+
+	" run a formatter on save
+	augroup fmt
+		autocmd!
+		autocmd BufWritePre * undojoin | Neoformat
+	augroup END
 endif
 
 
