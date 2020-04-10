@@ -53,9 +53,6 @@ Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 " Diff 增强，支持 histogram / patience 等更科学的 diff 算法
 Plug 'chrisbra/vim-diff-enhanced'
 
-" https://github.com/skywind3000/vim-quickui
-Plug 'skywind3000/vim-quickui'
-
 " True Sublime Text style multiple selections for Vim
 Plug 'terryma/vim-multiple-cursors'
 
@@ -127,6 +124,9 @@ if index(g:bundle_group, 'basic') >= 0
 
 	" 提供基于 TAGS 的定义预览，函数参数预览，quickfix 预览
 	Plug 'skywind3000/vim-preview'
+
+	" 支援 vim-preview
+	Plug 'skywind3000/vim-quickui'
 
 	" Git 支持
 	Plug 'tpope/vim-fugitive'
