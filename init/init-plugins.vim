@@ -106,8 +106,42 @@ if index(g:bundle_group, 'basic') >= 0
 	" 一次性安装一大堆 colorscheme
 	Plug 'flazz/vim-colorschemes'
 
+	" 彩虹括号
+	Plug 'kien/rainbow_parentheses.vim'
+	let g:rbpt_colorpairs = [
+	    \ ['brown',       'RoyalBlue3'],
+	    \ ['Darkblue',    'SeaGreen3'],
+	    \ ['darkgray',    'DarkOrchid3'],
+	    \ ['darkgreen',   'firebrick3'],
+	    \ ['darkcyan',    'RoyalBlue3'],
+	    \ ['darkred',     'SeaGreen3'],
+	    \ ['darkmagenta', 'DarkOrchid3'],
+	    \ ['brown',       'firebrick3'],
+	    \ ['gray',        'RoyalBlue3'],
+	    \ ['darkmagenta', 'DarkOrchid3'],
+	    \ ['Darkblue',    'firebrick3'],
+	    \ ['darkgreen',   'RoyalBlue3'],
+	    \ ['darkcyan',    'SeaGreen3'],
+	    \ ['darkred',     'DarkOrchid3'],
+	    \ ['red',         'firebrick3'],
+	    \ ]
+
+	let g:rbpt_max = 16
+	let g:rbpt_loadcmd_toggle = 0
+	au VimEnter * RainbowParenthesesToggle
+	au Syntax * RainbowParenthesesLoadRound
+	au Syntax * RainbowParenthesesLoadSquare
+	au Syntax * RainbowParenthesesLoadBraces
+	au Syntax * RainbowParenthesesLoadChevrons
+
 	" 支持库，给其他插件用的函数库
 	Plug 'xolox/vim-misc'
+
+	" Quoting/parenthesizing made simple
+	Plug 'tpope/vim-surround'
+	
+	" Enable repeating supported plugin maps with "."
+	Plug 'tpope/vim-repeat'
 
 	" 用于在侧边符号栏显示 marks （ma-mz 记录的位置）
 	Plug 'kshenoy/vim-signature'
