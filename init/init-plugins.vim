@@ -32,6 +32,9 @@ call plug#begin(get(g:, 'bundle_home', '~/.vim/bundles'))
 " 全文快速移动，<leader><leader>f{char} 即可触发
 Plug 'easymotion/vim-easymotion'
 
+" 多种颜色高亮符号
+Plug 'Yggdroot/vim-mark'
+
 " 文件浏览器，代替 netrw
 Plug 'justinmk/vim-dirvish'
 
