@@ -1,5 +1,3 @@
-
-
 "----------------------------------------------------------------------
 " basic setup
 "----------------------------------------------------------------------
@@ -23,7 +21,7 @@ function AirlineSetupMe(font)
 	let g:airline_powerline_fonts = 0
 	let g:airline_exclude_preview = 1
 	let g:airline_section_b = '%n'
-	if a:font 
+	if a:font
 		let g:airline_left_sep = "\ue0b0"
 		let g:airline_left_alt_sep = "\ue0b1"
 		let g:airline_right_sep = "\ue0b2"
