@@ -15,7 +15,7 @@ else
 endif
 
 " 取得本文件所在的目录
-let g:home = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
+let g:home = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 
 function! Gpath(path)
     let path = expand(g:home . '/' . a:path )
