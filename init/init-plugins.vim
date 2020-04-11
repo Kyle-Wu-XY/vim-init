@@ -107,7 +107,7 @@ if index(g:bundle_group, 'basic') >= 0
 	Plug 'tpope/vim-surround'
 
 	" 记住你上次所使用的补全方式，下次再补全时，直接使用TAB
-	Plug 'ervandew/supertab'
+	Plug 'metalelf0/supertab'
 	let g:SuperTabRetainCompletionType = 2
 	let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
