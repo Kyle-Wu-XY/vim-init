@@ -103,6 +103,9 @@ if index(g:bundle_group, 'basic') >= 0
 	" Quoting/parenthesizing made simple
 	Plug 'tpope/vim-surround'
 
+	" 记住你上次所使用的补全方式，下次再补全时，直接使用TAB
+	Plug 'ervandew/supertab'
+
 	" Enable repeating supported plugin maps with "."
 	Plug 'tpope/vim-repeat'
 
