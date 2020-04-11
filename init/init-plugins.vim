@@ -16,7 +16,7 @@
 if !exists('g:bundle_group')
 	let g:bundle_group = ['basic', 'tags', 'enhanced', 'filetypes', 'textobj']
 	let g:bundle_group += ['tags', 'airline', 'nerdtree', 'ale', 'echodoc']
-	let g:bundle_group += ['leaderf', 'neoformat', 'lsp']
+	let g:bundle_group += ['leaderf', 'neoformat', 'lsp', 'deoplete']
 endif
 
 "----------------------------------------------------------------------
@@ -347,7 +347,6 @@ if index(g:bundle_group, 'lsp') >= 0
 	LoadScript config/LanguageClient-neovim.vim
 endif
 
-" deoplete
 if index(g:bundle_group, 'deoplete') >= 0
 	if has('nvim')
 		Plug 'Shougo/deoplete.nvim'
