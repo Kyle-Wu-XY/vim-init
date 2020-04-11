@@ -105,6 +105,8 @@ if index(g:bundle_group, 'basic') >= 0
 
 	" 记住你上次所使用的补全方式，下次再补全时，直接使用TAB
 	Plug 'ervandew/supertab'
+	let g:SuperTabRetainCompletionType = 2
+	let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 	" Enable repeating supported plugin maps with "."
 	Plug 'tpope/vim-repeat'
@@ -308,7 +310,6 @@ if index(g:bundle_group, 'echodoc') >= 0
 	let g:echodoc#enable_at_startup = 1
 endif
 
-
 "----------------------------------------------------------------------
 " LeaderF：CtrlP / FZF 的超级代替者，文件模糊匹配，tags/函数名 选择
 "----------------------------------------------------------------------
@@ -337,7 +338,6 @@ if index(g:bundle_group, 'neoformat') >= 0
 	augroup END
 endif
 
-
 if index(g:bundle_group, 'lsp') >= 0
 	Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -346,6 +346,21 @@ if index(g:bundle_group, 'lsp') >= 0
 
 	LoadScript config/LanguageClient-neovim.vim
 endif
+
+" deoplete
+if index(g:bundle_group, 'deoplete') >= 0
+	if has('nvim')
+		Plug 'Shougo/deoplete.nvim'
+	else
+		Plug 'Shougo/deoplete.nvim'
+		Plug 'roxma/nvim-yarp'
+		Plug 'roxma/vim-hug-neovim-rpc'
+	endif
+
+	Plug 'zchee/deoplete-clang'
+	LoadScript config/deoplete.vim
+endif
+
 
 "----------------------------------------------------------------------
 " 结束插件安装
