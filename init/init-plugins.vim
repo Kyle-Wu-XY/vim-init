@@ -16,7 +16,7 @@
 if !exists('g:bundle_group')
 	let g:bundle_group = ['basic', 'tags', 'enhanced', 'filetypes', 'textobj']
 	let g:bundle_group += ['tags', 'airline', 'nerdtree', 'ale', 'echodoc']
-	let g:bundle_group += ['leaderf', 'neoformat']
+	let g:bundle_group += ['leaderf', 'neoformat', 'lsp']
 endif
 
 
@@ -528,6 +528,15 @@ if index(g:bundle_group, 'neoformat') >= 0
 	augroup END
 endif
 
+
+if index(g:bundle_group, 'lsp') >= 0
+	Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+	LoadScript config/LanguageClient-neovim.vim
+endif
 
 "----------------------------------------------------------------------
 " 结束插件安装
