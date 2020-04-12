@@ -16,6 +16,7 @@
 if !exists('g:bundle_group')
 	let g:bundle_group = ['basic', 'tags', 'enhanced', 'filetypes', 'textobj']
 	let g:bundle_group += ['tags', 'airline', 'nerdtree', 'ale', 'echodoc']
+	" let g:bundle_group += ['leaderf', 'neoformat', 'lsp', 'ncm2']
 	let g:bundle_group += ['leaderf', 'neoformat', 'lsp', 'deoplete']
 endif
 
@@ -354,15 +355,24 @@ if index(g:bundle_group, 'deoplete') >= 0
 	if has('nvim')
 		Plug 'Shougo/deoplete.nvim'
 	else
-		Plug 'Shougo/deoplete.nvim'
-		Plug 'roxma/nvim-yarp'
 		Plug 'roxma/vim-hug-neovim-rpc'
+		Plug 'roxma/nvim-yarp'
+		Plug 'Shougo/deoplete.nvim'
 	endif
 
 	Plug 'zchee/deoplete-clang'
 	LoadScript config/deoplete.vim
 endif
 
+if index(g:bundle_group, 'ncm2') >= 0
+    Plug 'ncm2/ncm2'
+	Plug 'roxma/nvim-yarp'
+
+	Plug 'ncm2/ncm2-bufword'
+	Plug 'ncm2/ncm2-path'
+
+	LoadScript config/ncm2.vim
+endif
 
 "----------------------------------------------------------------------
 " 结束插件安装
