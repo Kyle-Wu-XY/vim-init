@@ -14,6 +14,10 @@ else
 	let s:loaded = 1
 endif
 
+set pythonthreehome=/home/cnkwu/.local/share/python3.8/
+set pythonthreedll=/home/cnkwu/.local/share/python3.8/lib/libpython3.8.so.1.0
+let g:python3_host_prog ='/home/cnkwu/.local/share/python3.8/bin/python3'
+
 " 取得本文件所在的目录
 let g:home = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 

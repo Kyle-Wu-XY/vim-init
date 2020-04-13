@@ -16,8 +16,9 @@
 if !exists('g:bundle_group')
 	let g:bundle_group = ['basic', 'tags', 'enhanced', 'filetypes', 'textobj']
 	let g:bundle_group += ['tags', 'airline', 'nerdtree', 'ale', 'echodoc']
-	" let g:bundle_group += ['leaderf', 'neoformat', 'lsp', 'ncm2']
+	let g:bundle_group += ['leaderf', 'neoformat', 'lsp']
 	let g:bundle_group += ['leaderf', 'neoformat', 'lsp', 'deoplete']
+	" let g:bundle_group += ['leaderf', 'neoformat', 'lsp', 'ncm2']
 endif
 
 "----------------------------------------------------------------------
@@ -320,7 +321,7 @@ endif
 if index(g:bundle_group, 'leaderf') >= 0
 	if has('python') || has('python3')
 		" 如果 vim 支持 python 则启用  Leaderf
-		Plug 'Yggdroot/LeaderF'
+		Plug 'Yggdroot/LeaderF', { 'do': './install.sh'}
 		Plug 'tamago324/LeaderF-filer'
 	else
 		" 不支持 python ，使用 CtrlP 代替
@@ -357,7 +358,10 @@ if index(g:bundle_group, 'deoplete') >= 0
 	else
 		Plug 'roxma/vim-hug-neovim-rpc'
 		Plug 'roxma/nvim-yarp'
-		Plug 'Shougo/deoplete.nvim'
+		Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+		Plug 'Shougo/neosnippet'
+		Plug 'Shougo/neosnippet-snippets'
+		Plug 'Shougo/neopairs.vim'
 	endif
 
 	Plug 'zchee/deoplete-clang'
