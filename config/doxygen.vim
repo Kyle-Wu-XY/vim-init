@@ -1,4 +1,4 @@
-let g:DoxygenToolkit_licenseTag="My own license"   <-- !!! Does not end with "\<enter>"
+let g:DoxygenToolkit_licenseTag="My own license"
 let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
 let g:DoxygenToolkit_blockFooter="--------------------------------------------------------------------------"
 let g:DoxygenToolkit_briefTag_funcName = "yes"
