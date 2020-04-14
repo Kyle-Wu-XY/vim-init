@@ -101,6 +101,9 @@ if index(g:bundle_group, 'basic') >= 0
 	" 缩进级别竖线
 	Plug 'Yggdroot/indentLine'
 
+	" 下划线当前符号
+	Plug 'itchyny/vim-cursorword'
+
 	" 彩虹括号
 	Plug 'kien/rainbow_parentheses.vim'
 	LoadScript config/rainbow_parentheses.vim
