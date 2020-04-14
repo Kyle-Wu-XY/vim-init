@@ -160,3 +160,9 @@ let g:Lf_Extensions.task = {
 			\ },
 			\ 'after_enter': string(function('s:lf_win_init'))[10:-3],
 		\ }
+
+
+"----------------------------------------------------------------------
+" LeaderF-filer
+"----------------------------------------------------------------------
+noremap <leader>ff :Leaderf filer<cr>
