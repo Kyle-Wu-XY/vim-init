@@ -15,10 +15,9 @@
 "----------------------------------------------------------------------
 if !exists('g:bundle_group')
 	let g:bundle_group = ['basic', 'tags', 'enhanced', 'filetypes', 'textobj']
-	let g:bundle_group += ['tags', 'airline', 'nerdtree', 'ale', 'echodoc']
-	let g:bundle_group += ['leaderf', 'neoformat', 'lsp-client']
-	let g:bundle_group += ['leaderf', 'neoformat', 'lsp-client', 'coc']
-	" let g:bundle_group += ['deoplete', 'ncm2']
+	let g:bundle_group += ['airline', 'nerdtree', 'ale', 'echodoc']
+	let g:bundle_group += ['leaderf', 'neoformat', 'coc']
+	" let g:bundle_group += ['deoplete', 'ncm2', 'lcn']
 endif
 
 "----------------------------------------------------------------------
@@ -343,7 +342,7 @@ if index(g:bundle_group, 'neoformat') >= 0
 	augroup END
 endif
 
-if index(g:bundle_group, 'lsp-client') >= 0
+if index(g:bundle_group, 'lcn') >= 0
 	Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -383,10 +382,10 @@ if index(g:bundle_group, 'coc') >= 0
 	Plug 'neoclide/coc.nvim', {'branch': 'release', 'tag': '*', 'do': { -> coc#util#install()}}
 
 	" Or latest tag
-	" Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+	Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
 	" Or build from source code by use yarn: https://yarnpkg.com
-	" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+	Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 	LoadScript config/coc.vim
 endif
