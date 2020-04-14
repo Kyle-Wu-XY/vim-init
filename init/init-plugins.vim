@@ -17,6 +17,7 @@ if !exists('g:bundle_group')
 	let g:bundle_group = ['basic', 'tags', 'enhanced', 'filetypes', 'textobj']
 	let g:bundle_group += ['airline', 'nerdtree', 'ale', 'echodoc']
 	let g:bundle_group += ['leaderf', 'neoformat', 'coc']
+	let g:bundle_group += ['doxygen']
 	" let g:bundle_group += ['deoplete', 'ncm2', 'lcn']
 endif
 
@@ -388,6 +389,11 @@ if index(g:bundle_group, 'coc') >= 0
 	" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 	LoadScript config/coc.vim
+endif
+
+if index(g:bundle_group, 'doxygen') >= 0
+	Plug 'vim-scripts/DoxygenToolkit.vim'
+	LoadScript config/doxygen.vim
 endif
 
 "----------------------------------------------------------------------
