@@ -98,6 +98,9 @@ if index(g:bundle_group, 'basic') >= 0
 	" 一次性安装一大堆 colorscheme
 	Plug 'flazz/vim-colorschemes'
 
+	" 缩进级别竖线
+	Plug 'Yggdroot/indentLine'
+
 	" 彩虹括号
 	Plug 'kien/rainbow_parentheses.vim'
 	LoadScript config/rainbow_parentheses.vim
