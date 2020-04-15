@@ -109,8 +109,8 @@ if index(g:bundle_group, 'basic') >= 0
 	Plug 'itchyny/vim-cursorword'
 
 	" 彩虹括号
-	Plug 'kien/rainbow_parentheses.vim'
-	LoadScript config/rainbow_parentheses.vim
+	Plug 'luochen1990/rainbow'
+	let g:rainbow_active = 1
 
 	" 支持库，给其他插件用的函数库
 	Plug 'xolox/vim-misc'
