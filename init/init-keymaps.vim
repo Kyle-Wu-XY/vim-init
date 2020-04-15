@@ -18,10 +18,10 @@
 "----------------------------------------------------------------------
 " With a map leader it's possible to do extra key combinations
 "----------------------------------------------------------------------
-let mapleader = "\<Space>"
-let g:mapleader = "\<Space>"
-let maplocalleader = "\<Space>"
-let g:maplocalleader = "\<Space>"
+" let mapleader = "\<Space>"
+" let g:mapleader = "\<Space>"
+" let maplocalleader = "\<Space>"
+" let g:maplocalleader = "\<Space>"
 
 "----------------------------------------------------------------------
 " INSERT 模式下使用 EMACS 键位

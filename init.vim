@@ -30,7 +30,7 @@ function! Gpath(path)
 endfunc
 
 
-" 定义一个命令用来加载文件
+" 定义一个函数用来加载文件
 command! -nargs=1 LoadScript exec 'so '. fnameescape(g:home."/<args>")
 
 " 将 vim-init 目录加入 runtimepath

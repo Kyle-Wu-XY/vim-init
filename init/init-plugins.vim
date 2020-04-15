@@ -31,8 +31,12 @@ call plug#begin(get(g:, 'bundle_home', '~/.vim/bundles'))
 " 默认插件
 "----------------------------------------------------------------------
 
-" 全文快速移动，<leader><leader>f{char} 即可触发
+" 全文快速移动
 Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
+LoadScript config/easymotion.vim
 
 " 多种颜色高亮符号
 Plug 'Yggdroot/vim-mark'
