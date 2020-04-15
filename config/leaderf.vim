@@ -166,3 +166,11 @@ let g:Lf_Extensions.task = {
 " LeaderF-filer
 "----------------------------------------------------------------------
 noremap <leader>ff :Leaderf filer<cr>
+
+"----------------------------------------------------------------------
+" For ripgrep
+"----------------------------------------------------------------------
+" grep on the fly, support both fuzzy and regex
+noremap <C-F> :Leaderf rg<cr>
+" search visually selected text literally, don't quit LeaderF after accepting an entry
+xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR>
