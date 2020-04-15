@@ -43,6 +43,15 @@ Plug 'Yggdroot/vim-mark'
 
 " 文件浏览器，代替 netrw
 Plug 'justinmk/vim-dirvish'
+" Map `t` to open in new tab.
+autocmd FileType dirvish
+\  nnoremap <silent><buffer> t :call dirvish#open('tabedit', 0)<CR>
+\ |xnoremap <silent><buffer> t :call dirvish#open('tabedit', 0)<CR>
+
+" 窗口快速跳转
+Plug 't9md/vim-choosewin'
+let g:choosewin_overlay_enable = 1
+nmap _ <Plug>(choosewin)
 
 " 表格对齐，使用命令 Tabularize
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
