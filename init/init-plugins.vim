@@ -17,7 +17,7 @@ if !exists('g:bundle_group')
 	let g:bundle_group = ['basic', 'tags', 'enhanced', 'filetypes', 'textobj']
 	let g:bundle_group += ['airline', 'nerdtree', 'ale', 'echodoc']
 	let g:bundle_group += ['leaderf', 'neoformat', 'coc']
-	let g:bundle_group += ['doxygen']
+	let g:bundle_group += ['doxygen', 'snippets']
 	" let g:bundle_group += ['deoplete', 'ncm2', 'lcn']
 endif
 
@@ -365,11 +365,11 @@ if index(g:bundle_group, 'deoplete') >= 0
 		Plug 'roxma/vim-hug-neovim-rpc'
 		Plug 'roxma/nvim-yarp'
 		Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-		Plug 'Shougo/neosnippet'
-		Plug 'Shougo/neosnippet-snippets'
-		Plug 'Shougo/neopairs.vim'
 	endif
 
+	Plug 'Shougo/neosnippet'
+	Plug 'Shougo/neosnippet-snippets'
+	Plug 'Shougo/neopairs.vim'
 	Plug 'zchee/deoplete-clang'
 	LoadScript config/deoplete.vim
 endif
@@ -394,6 +394,8 @@ if index(g:bundle_group, 'coc') >= 0
 	" Or build from source code by use yarn: https://yarnpkg.com
 	" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
+	" :CocInstall coc-snippets
+
 	LoadScript config/coc.vim
 endif
 
@@ -402,6 +404,10 @@ if index(g:bundle_group, 'doxygen') >= 0
 	LoadScript config/doxygen.vim
 endif
 
+if index(g:bundle_group, 'snippets') >= 0
+	Plug 'honza/vim-snippets'
+	Plug 'SirVer/ultisnips'
+endif
 "----------------------------------------------------------------------
 " 结束插件安装
 "----------------------------------------------------------------------

@@ -56,6 +56,13 @@ set t_Co=256
 color desert256
 " color desert
 
+" 插入模式下光标形状
+if has('nvim')
+	set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+	  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+	  \,sm:block-blinkwait175-blinkoff150-blinkon175
+endif
+
 " 当进入'插入'模式时，高亮当前行 - 是比让光标'变细'更为通用的方案
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
