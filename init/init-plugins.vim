@@ -414,6 +414,12 @@ if index(g:bundle_group, 'coc') >= 0
 	" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 	" :CocInstall coc-snippets
+	" :CocInstall coc-clangd
+
+	" Clang based syntax highlighting for Neovim - python3 only
+	" Plug 'arakashic/chromatica.nvim'
+	" let g:chromatica#libclang_path='/home/cnkwu/.local/share/llvm9/lib'
+	" let g:chromatica#enable_at_startup=1
 
 	LoadScript config/coc.vim
 endif
