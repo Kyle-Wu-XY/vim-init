@@ -109,7 +109,9 @@ if index(g:bundle_group, 'basic') >= 0
 	Plug 'mhinz/vim-startify'
 
 	" 一次性安装一大堆 colorscheme
-	Plug 'flazz/vim-colorschemes'
+	Plug 'rafi/awesome-vim-colorschemes'
+	" Plug 'flazz/vim-colorschemes'
+	" Plug 'qualiabyte/vim-colorstepper'
 
 	" 缩进级别竖线
 	Plug 'Yggdroot/indentLine'
@@ -246,7 +248,7 @@ if index(g:bundle_group, 'filetypes') >= 0
 	Plug 'tbastos/vim-lua', { 'for': 'lua' }
 
 	" C++ 语法高亮增强，支持 11/14/17 标准
-	Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
+	Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cc', 'h', 'hpp', 'cxx', 'cpp'] }
 
 	" 额外语法文件
 	Plug 'justinmk/vim-syntax-extra', { 'for': ['c', 'bison', 'flex', 'cpp'] }
