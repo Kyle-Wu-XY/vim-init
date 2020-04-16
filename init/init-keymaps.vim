@@ -401,32 +401,6 @@ nnoremap <m-s> <c-i>
 inoremap <m-a> <c-o>
 inoremap <m-s> <c-i>
 
-"----------------------------------------------------------------------
-" For gtags-cscope interfacs
-"----------------------------------------------------------------------
-let g:gutentags_plus_nomap = 1
-" Find symbol (reference) under cursor
-noremap <silent> <leader>gs :GscopeFind s <C-R><C-W><cr>
-" Find symbol definition under cursor
-noremap <silent> <leader>gg :GscopeFind g <C-R><C-W><cr>
-noremap <silent> <m-g> :GscopeFind g <C-R><C-W><cr>
-" Functions calling this function
-noremap <silent> <leader>gc :GscopeFind c <C-R><C-W><cr>
-" Find text string under cursor
-noremap <silent> <leader>gt :GscopeFind t <C-R><C-W><cr>
-" Find egrep pattern under cursor
-noremap <silent> <leader>ge :GscopeFind e <C-R><C-W><cr>
-" Find file name under cursor
-noremap <silent> <leader>gf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
-" Find files #including the file name under cursor
-noremap <silent> <leader>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
-" Functions called by this function
-noremap <silent> <leader>gd :GscopeFind d <C-R><C-W><cr>
-" Find places where current symbol is assigned
-noremap <silent> <leader>ga :GscopeFind a <C-R><C-W><cr>
-" Find current word in ctags database
-noremap <silent> <leader>gz :GscopeFind z <C-R><C-W><cr>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin 'mark'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
