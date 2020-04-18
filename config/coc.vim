@@ -71,11 +71,11 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nnoremap <leader>rn <Plug>(coc-rename)
+nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xnoremap <leader>cf  <Plug>(coc-format-selected)
-nnoremap <leader>cf  <Plug>(coc-format-selected)
+xmap <leader>cf  <Plug>(coc-format-selected)
+nmap <leader>cf  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -87,11 +87,11 @@ augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-xnoremap <leader>ca  <Plug>(coc-codeaction-selected)
-nnoremap <leader>ca  <Plug>(coc-codeaction-selected)
+xmap <leader>ca  <Plug>(coc-codeaction-selected)
+nmap <leader>ca  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current line.
-nnoremap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nnoremap <leader>qf  <Plug>(coc-fix-current)
 
@@ -248,7 +248,7 @@ augroup hugefile
 augroup END
 
 "======================================================================
-" bases
+" for ccls
 nn <silent> <leader>xb :call CocLocations('ccls','$ccls/inheritance')<cr>
 " bases of up to 3 levels
 nn <silent> <leader>xB :call CocLocations('ccls','$ccls/inheritance',{'levels':3})<cr>
@@ -270,12 +270,11 @@ nn <silent> <leader>xf :call CocLocations('ccls','$ccls/member',{'kind':3})<cr>
 " nested classes / types in a namespace
 nn <silent> <leader>xs :call CocLocations('ccls','$ccls/member',{'kind':2})<cr>
 
-nmap <silent> <leader>xt <Plug>(coc-type-definition)<cr>
 nn <silent> <leader>xv :call CocLocations('ccls','$ccls/vars')<cr>
 nn <silent> <leader>xV :call CocLocations('ccls','$ccls/vars',{'kind':1})<cr>
 
 " typo correct xx -> x
-" nn xx x
+nn xx x
 
 " ccls/navigate - https://github.com/MaskRay/ccls/wiki/LSP-Extensions#cclsnavigate
 nn <silent><buffer> <C-l> :call CocLocations('ccls','$ccls/navigate',{'direction':'D'})<cr>
