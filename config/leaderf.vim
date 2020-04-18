@@ -1,3 +1,58 @@
+""""""""""""""""""""""""""""""""""""""""
+" => custom function
+function! s:lf_task_source(...)
+	let rows = asynctasks#source(&columns * 48 / 100)
+	let source = []
+	for row in rows
+		let name = row[0]
+		let source += [name . '  ' . row[1] . '  : ' . row[2]]
+	endfor
+	return source
+endfunc
+
+
+function! s:lf_task_accept(line, arg)
+	let pos = stridx(a:line, '<')
+	if pos < 0
+		return
+	endif
+	let name = strpart(a:line, 0, pos)
+	let name = substitute(name, '^\s*\(.\{-}\)\s*$', '\1', '')
+	redraw
+	if name != ''
+		exec "AsyncTask " . name
+	endif
+endfunc
+
+function! s:lf_task_digest(line, mode)
+	let pos = stridx(a:line, '<')
+	if pos < 0
+		return [a:line, 0]
+	endif
+	let name = strpart(a:line, 0, pos)
+	return [name, 0]
+endfunc
+
+function! s:lf_win_init(...)
+	setlocal nonumber
+	setlocal nowrap
+endfunc
+
+let g:Lf_Extensions = get(g:, 'Lf_Extensions', {})
+let g:Lf_Extensions.task = {
+			\ 'source': string(function('s:lf_task_source'))[10:-3],
+			\ 'accept': string(function('s:lf_task_accept'))[10:-3],
+			\ 'get_digest': string(function('s:lf_task_digest'))[10:-3],
+			\ 'highlights_def': {
+			\     'Lf_hl_funcScope': '^\S\+',
+			\     'Lf_hl_funcDirname': '^\S\+\s*\zs<.*>\ze\s*:',
+			\ },
+			\ 'after_enter': string(function('s:lf_win_init'))[10:-3],
+		\ }
+
+
+""""""""""""""""""""""""""""""""""""""""
+" => compatible check for python support
 if index(g:bundle_group, 'leaderf') >= 0
 	if has('python') || has('python3')
 		" 如果 vim 支持 python 则启用  Leaderf
@@ -10,17 +65,17 @@ if index(g:bundle_group, 'leaderf') >= 0
 		" CTRL+n 打开最近使用的文件 MRU，进行模糊匹配
 		noremap <m-p> :LeaderfMru<cr>
 
-		" ALT+p 打开函数列表，按 i 进入模糊匹配，ESC 退出
-		noremap <m-m> :LeaderfFunction!<cr>
+		" ALT+p 打开函数列表
+		noremap <m-m> :LeaderfFunction<cr>
 
-		" ALT+SHIFT+p 打开 tag 列表，i 进入模糊匹配，ESC退出
-		noremap <m-t> :LeaderfBufTag!<cr>
+		" ALT+SHIFT+p 打开 tag 列表
+		noremap <c-m> :LeaderfBufTag<cr>
 
 		" ALT+n 打开 buffer 列表进行模糊匹配
 		noremap <m-b> :LeaderfBuffer<cr>
 
 		" ALT+m 全局 tags 模糊匹配
-		noremap <m-,> :LeaderfTag<cr>
+		noremap <c-s> :LeaderfTag<cr>
 
 		" 最大历史文件保存 2048 个
 		let g:Lf_MruMaxFiles = 2048
@@ -64,7 +119,7 @@ if index(g:bundle_group, 'leaderf') >= 0
 
 		let g:Lf_PreviewInPopup = 1
 		" 禁用 function/buftag 的预览功能，可以手动用 p 预览
-		let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
+		let g:Lf_PreviewResult = {'Function':1, 'BufTag':1}
 
 		" 使用 ESC 键可以直接退出 leaderf 的 normal 模式
 		let g:Lf_NormalMap = {
@@ -99,7 +154,7 @@ if index(g:bundle_group, 'leaderf') >= 0
 		noremap <m-p> :CtrlPMRUFiles<cr>
 
 		" ALT+p 显示当前文件的函数列表
-		noremap <m-m> :CtrlPFunky<cr>
+		noremap <c-m> :CtrlPFunky<cr>
 
 		" ALT+n 匹配 buffer
 		noremap <m-b> :CtrlPBuffer<cr>
@@ -107,70 +162,21 @@ if index(g:bundle_group, 'leaderf') >= 0
 endif
 
 
-"----------------------------------------------------------------------
-" source task
-"----------------------------------------------------------------------
-function! s:lf_task_source(...)
-	let rows = asynctasks#source(&columns * 48 / 100)
-	let source = []
-	for row in rows
-		let name = row[0]
-		let source += [name . '  ' . row[1] . '  : ' . row[2]]
-	endfor
-	return source
-endfunc
+""""""""""""""""""""""""""""""""""""""""
+" => LeaderF-filer
+noremap <leader>ff :Leaderf! filer<cr>
 
-
-function! s:lf_task_accept(line, arg)
-	let pos = stridx(a:line, '<')
-	if pos < 0
-		return
-	endif
-	let name = strpart(a:line, 0, pos)
-	let name = substitute(name, '^\s*\(.\{-}\)\s*$', '\1', '')
-	redraw
-	if name != ''
-		exec "AsyncTask " . name
-	endif
-endfunc
-
-function! s:lf_task_digest(line, mode)
-	let pos = stridx(a:line, '<')
-	if pos < 0
-		return [a:line, 0]
-	endif
-	let name = strpart(a:line, 0, pos)
-	return [name, 0]
-endfunc
-
-function! s:lf_win_init(...)
-	setlocal nonumber
-	setlocal nowrap
-endfunc
-
-
-let g:Lf_Extensions = get(g:, 'Lf_Extensions', {})
-let g:Lf_Extensions.task = {
-			\ 'source': string(function('s:lf_task_source'))[10:-3],
-			\ 'accept': string(function('s:lf_task_accept'))[10:-3],
-			\ 'get_digest': string(function('s:lf_task_digest'))[10:-3],
-			\ 'highlights_def': {
-			\     'Lf_hl_funcScope': '^\S\+',
-			\     'Lf_hl_funcDirname': '^\S\+\s*\zs<.*>\ze\s*:',
-			\ },
-			\ 'after_enter': string(function('s:lf_win_init'))[10:-3],
-		\ }
-
-
-"----------------------------------------------------------------------
-" LeaderF-filer
-"----------------------------------------------------------------------
-noremap <leader>ff :Leaderf filer<cr>
-
-"----------------------------------------------------------------------
-" For ripgrep
-"----------------------------------------------------------------------
+""""""""""""""""""""""""""""""""""""""""
+" => ripgrep
 " grep on the fly, support both fuzzy and regex
 noremap <C-F> :Leaderf rg<cr>
+
 " search visually selected text literally, don't quit LeaderF after accepting an entry
 xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR>
+
+" search word under cursor literally only in current buffer
+" noremap <C-S-s> :<C-U><C-R>=printf("Leaderf! rg -F --current-buffer -e %s ", expand("<cword>"))<CR>
+
+" search word under cursor literally in all listed buffers
+noremap <C-S-,> :<C-U><C-R>=printf("Leaderf! rg -F --all-buffers -e %s ", expand("<cword>"))<CR>
+
