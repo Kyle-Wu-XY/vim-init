@@ -63,7 +63,7 @@ if index(g:bundle_group, 'leaderf') >= 0
 		let g:Lf_ShortcutB = '<m-b>'
 
 		" CTRL+n 打开最近使用的文件 MRU，进行模糊匹配
-		noremap <m-p> :LeaderfMru<cr>
+		noremap <space>p :LeaderfMru<cr>
 
 		" ALT+p 打开函数列表
 		noremap <m-m> :LeaderfFunction<cr>
@@ -151,7 +151,7 @@ if index(g:bundle_group, 'leaderf') >= 0
 		noremap <c-o> :CtrlP<cr>
 
 		" CTRL+n 打开最近访问过的文件的匹配
-		noremap <m-p> :CtrlPMRUFiles<cr>
+		noremap <space>p :CtrlPMRUFiles<cr>
 
 		" ALT+p 显示当前文件的函数列表
 		noremap <c-m> :CtrlPFunky<cr>
@@ -169,14 +169,45 @@ noremap <leader>ff :Leaderf! filer<cr>
 """"""""""""""""""""""""""""""""""""""""
 " => ripgrep
 " grep on the fly, support both fuzzy and regex
-noremap <C-F> :Leaderf rg<cr>
+noremap <C-F> :Leaderf rg --cword<cr>
+noremap gf :Leaderf rg -w -F --cword<CR>
+noremap <leader>gr :<C-U><C-R>=printf("Leaderf! rg -e %s --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
+" search visually selected text literally, don't quit LeaderF after accepting an entry
+xnoremap gs :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
+
+
+""""""""""""""""""""""""""""""""""""""""
+" => examples
+if 0
+" search word under cursor, the pattern is treated as regex, and enter normal mode directly
+noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+
+" search word under cursor, the pattern is treated as regex,
+" append the result to previous search results.
+noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg --append -e %s ", expand("<cword>"))<CR>
+
+" search word under cursor literally only in current buffer
+noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg -F --current-buffer -e %s ", expand("<cword>"))<CR>
+
+" search word under cursor literally in all listed buffers
+noremap <C-D> :<C-U><C-R>=printf("Leaderf! rg -F --all-buffers -e %s ", expand("<cword>"))<CR>
 
 " search visually selected text literally, don't quit LeaderF after accepting an entry
 xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR>
 
-" search word under cursor literally only in current buffer
-" noremap <C-S-s> :<C-U><C-R>=printf("Leaderf! rg -F --current-buffer -e %s ", expand("<cword>"))<CR>
+" recall last search. If the result window is closed, reopen it.
+noremap go :<C-U>Leaderf! rg --recall<CR>
 
-" search word under cursor literally in all listed buffers
-noremap <C-S-,> :<C-U><C-R>=printf("Leaderf! rg -F --all-buffers -e %s ", expand("<cword>"))<CR>
 
+" search word under cursor in *.h and *.cpp files.
+noremap <Leader>a :<C-U><C-R>=printf("Leaderf! rg -e %s -g *.h -g *.cpp", expand("<cword>"))<CR>
+" the same as above
+noremap <Leader>a :<C-U><C-R>=printf("Leaderf! rg -e %s -g *.{h,cpp}", expand("<cword>"))<CR>
+
+" search word under cursor in cpp and java files.
+noremap <Leader>b :<C-U><C-R>=printf("Leaderf! rg -e %s -t cpp -t java", expand("<cword>"))<CR>
+
+" search word under cursor in cpp files, exclude the *.hpp files
+noremap <Leader>c :<C-U><C-R>=printf("Leaderf! rg -e %s -t cpp -g !*.hpp", expand("<cword>"))<CR>
+
+endif
