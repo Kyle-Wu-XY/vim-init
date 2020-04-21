@@ -75,7 +75,7 @@ if index(g:bundle_group, 'leaderf') >= 0
 		noremap <m-b> :LeaderfBuffer<cr>
 
 		" ALT+m 全局 tags 模糊匹配
-		noremap <c-s> :LeaderfTag<cr>
+		noremap <c-s> :Leaderf tag --cword<cr>
 
 		" 最大历史文件保存 2048 个
 		let g:Lf_MruMaxFiles = 2048
@@ -83,8 +83,8 @@ if index(g:bundle_group, 'leaderf') >= 0
 		" ui 定制
 		let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
-		noremap <m-g> :Leaderf --nowrap task<cr>
-		inoremap <m-g> <esc>:Leaderf --nowrap task<cr>
+		" noremap <m-g> :Leaderf --nowrap task<cr>
+		" inoremap <m-g> <esc>:Leaderf --nowrap task<cr>
 
 		if has('gui_running')
 			noremap <c-f12> :Leaderf --nowrap task<cr>
@@ -100,7 +100,7 @@ if index(g:bundle_group, 'leaderf') >= 0
 		let g:Lf_WindowHeight = 0.40
 		let g:Lf_CacheDirectory = expand('~/.vim/cache')
 
-		" 显示绝对路径
+		" 显示相对路径
 		let g:Lf_ShowRelativePath = 1
 
 		" 隐藏帮助
@@ -119,7 +119,7 @@ if index(g:bundle_group, 'leaderf') >= 0
 
 		let g:Lf_PreviewInPopup = 1
 		" 禁用 function/buftag 的预览功能，可以手动用 p 预览
-		let g:Lf_PreviewResult = {'Function':1, 'BufTag':1}
+		let g:Lf_PreviewResult = {'File': 1,'Buffer': 1,'Mru': 1,'Tag': 1,'BufTag': 1,'Function': 1,'Line': 1,'Colorscheme': 1}
 
 		" 使用 ESC 键可以直接退出 leaderf 的 normal 模式
 		let g:Lf_NormalMap = {
@@ -169,7 +169,7 @@ noremap <leader>ff :Leaderf! filer<cr>
 """"""""""""""""""""""""""""""""""""""""
 " => ripgrep
 " grep on the fly, support both fuzzy and regex
-noremap <C-F> :Leaderf rg --cword<cr>
+noremap <S-f> :Leaderf rg --cword<cr>
 noremap gf :Leaderf rg -w -F --cword<CR>
 noremap <leader>gr :<C-U><C-R>=printf("Leaderf! rg -e %s --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
 " search visually selected text literally, don't quit LeaderF after accepting an entry
