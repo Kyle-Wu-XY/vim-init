@@ -66,9 +66,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'LucHermitte/lh-vim-lib'
 Plug 'LucHermitte/alternate-lite'
 
-" find and replace occurrences in many buffers being aware of the context
-Plug 'pelodelfuego/vim-swoop'
-
 "----------------------------------------------------------------------
 " Dirvish 设置：自动排序并隐藏文件，同时定位到相关文件
 " 这个排序函数可以将目录排在前面，文件排在后面，并且按照字母顺序排序

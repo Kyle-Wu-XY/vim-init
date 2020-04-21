@@ -18,10 +18,10 @@
 "----------------------------------------------------------------------
 " With a map leader it's possible to do extra key combinations
 "----------------------------------------------------------------------
-" let mapleader = "\<Space>"
-" let g:mapleader = "\<Space>"
-" let maplocalleader = "\<Space>"
-" let g:maplocalleader = "\<Space>"
+let mapleader = "\<space>"
+" let g:mapleader = "\<space>"
+" let maplocalleader = "\<space>"
+" let g:maplocalleader = "\<space>"
 
 "----------------------------------------------------------------------
 " INSERT 模式下使用 EMACS 键位
@@ -378,20 +378,6 @@ endif
 " For Easily toggle between *.c* and *.h* buffers.
 "----------------------------------------------------------------------
 noremap <m-o> :A<cr>
-
-"----------------------------------------------------------------------
-" For swoop
-"----------------------------------------------------------------------
-let g:swoopUseDefaultKeyMap = 0
-let g:swoopIgnoreCase = 1
-let g:swoopPatternSpaceInsertsWildcard = 1
-let g:swoopAutoInserMode = 1
-"let g:swoopHighlight = ["hi! link SwoopBufferLineHi Warning", "hi! link SwoopPatternHi Error"]
-
-nnoremap <leader>ss :call Swoop()<CR>
-vnoremap <leader>ss :call SwoopSelection()<CR>
-nnoremap <leader>s, :call SwoopMulti()<CR>
-vnoremap <leader>s, :call SwoopMultiSelection()<CR>
 
 "----------------------------------------------------------------------
 " For jump history

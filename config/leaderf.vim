@@ -164,14 +164,19 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""
 " => LeaderF-filer
-noremap <leader>ff :Leaderf! filer<cr>
+nnoremap <leader>ff :Leaderf! filer<cr>
 
 """"""""""""""""""""""""""""""""""""""""
 " => ripgrep
 " grep on the fly, support both fuzzy and regex
-noremap <S-f> :Leaderf rg --cword<cr>
-noremap gf :Leaderf rg -w -F --cword<CR>
-noremap <leader>gr :<C-U><C-R>=printf("Leaderf! rg -e %s --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
+nnoremap <s-f> :Leaderf rg --cword<cr>
+nnoremap <leader>fa :Leaderf rg --cword<cr>
+nnoremap <leader>fc :Leaderf rg --current-buffer --cword<cr>
+nnoremap <leader>fl :Leaderf rg --all-buffers --cword<cr>
+
+nnoremap gf :Leaderf rg -w -F --cword<CR>
+nnoremap <s-r> :<C-U><C-R>=printf("Leaderf! rg -e %s --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
+nnoremap <leader>fr :<C-U><C-R>=printf("Leaderf! rg -e %s --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
 " search visually selected text literally, don't quit LeaderF after accepting an entry
 xnoremap gs :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
 
