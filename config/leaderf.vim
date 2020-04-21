@@ -98,7 +98,7 @@ if index(g:bundle_group, 'leaderf') >= 0
 			let g:Lf_WindowPosition = 'popup'
 		endif
 		let g:Lf_WindowHeight = 0.40
-		let g:Lf_CacheDirectory = expand('~/.vim/cache')
+		let g:Lf_CacheDirectory = expand('~/.cache/vim/')
 
 		" 显示相对路径
 		let g:Lf_ShowRelativePath = 1
@@ -169,16 +169,16 @@ nnoremap <leader>ff :Leaderf! filer<cr>
 """"""""""""""""""""""""""""""""""""""""
 " => ripgrep
 " grep on the fly, support both fuzzy and regex
-nnoremap <s-f> :Leaderf rg --cword<cr>
 nnoremap <leader>fa :Leaderf rg --cword<cr>
 nnoremap <leader>fc :Leaderf rg --current-buffer --cword<cr>
 nnoremap <leader>fl :Leaderf rg --all-buffers --cword<cr>
-
-nnoremap gf :Leaderf rg -w -F --cword<CR>
-nnoremap <s-r> :<C-U><C-R>=printf("Leaderf! rg -e %s --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
 nnoremap <leader>fr :<C-U><C-R>=printf("Leaderf! rg -e %s --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
-" search visually selected text literally, don't quit LeaderF after accepting an entry
-xnoremap gs :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
+nnoremap <leader>fs :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
+
+nnoremap <s-f> :Leaderf rg --cword<cr>
+nnoremap <s-g> :Leaderf rg -w -F --cword<CR>
+nnoremap <s-r> :<C-U><C-R>=printf("Leaderf! rg -e %s --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
+" nnoremap <s-s> :<C-U><C-R>=printf("Leaderf! rg -e %s ", leaderf#Rg#visual())<CR><CR>
 
 
 """"""""""""""""""""""""""""""""""""""""
