@@ -175,11 +175,10 @@ nnoremap <leader>fl :Leaderf rg --all-buffers --cword<cr>
 nnoremap <leader>fr :<C-U><C-R>=printf("Leaderf! rg -e %s --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
 nnoremap <leader>fs :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
 
-nnoremap <s-f> :Leaderf rg --cword<cr>
-nnoremap <s-g> :Leaderf rg -w -F --cword<CR>
-nnoremap <s-r> :<C-U><C-R>=printf("Leaderf! rg -e %s --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
-" nnoremap <s-s> :<C-U><C-R>=printf("Leaderf! rg -e %s ", leaderf#Rg#visual())<CR><CR>
-
+nnoremap <s-f> :Leaderf rg --cword<CR>
+nnoremap <s-g> :<C-U><C-R>=printf("Leaderf! rg -e %s --iglob *.c --iglob *.cc --iglob *.cpp --iglob *.cxx", expand("<cword>"))<CR><CR>
+nnoremap <s-r> :<C-U><C-R>=printf("Leaderf! rg -e %s --iglob !%s.* --iglob *.c --iglob *.cc --iglob *.cpp --iglob *.cxx", expand("<cword>"), expand("<cword>"))<CR><CR>
+vnoremap <s-v> :<C-U><C-R>=printf("Leaderf! rg -e %s ", leaderf#Rg#visual())<CR><CR>
 
 """"""""""""""""""""""""""""""""""""""""
 " => examples
