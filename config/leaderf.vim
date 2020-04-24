@@ -169,16 +169,12 @@ nnoremap <leader>ff :Leaderf! filer<cr>
 """"""""""""""""""""""""""""""""""""""""
 " => ripgrep
 " grep on the fly, support both fuzzy and regex
-nnoremap <leader>fa :Leaderf rg --cword<cr>
-nnoremap <leader>fc :Leaderf rg --current-buffer --cword<cr>
-nnoremap <leader>fl :Leaderf rg --all-buffers --cword<cr>
-nnoremap <leader>fr :<C-U><C-R>=printf("Leaderf! rg -e %s --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
-nnoremap <leader>fs :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
-
-nnoremap <s-f> :Leaderf rg --cword<CR>
-nnoremap <s-g> :<C-U><C-R>=printf("Leaderf! rg -e %s --iglob *.c --iglob *.cc --iglob *.cpp --iglob *.cxx", expand("<cword>"))<CR><CR>
-nnoremap <s-r> :<C-U><C-R>=printf("Leaderf! rg -e %s --iglob !%s.* --iglob *.c --iglob *.cc --iglob *.cpp --iglob *.cxx", expand("<cword>"), expand("<cword>"))<CR><CR>
-vnoremap <s-v> :<C-U><C-R>=printf("Leaderf! rg -e %s ", leaderf#Rg#visual())<CR><CR>
+nnoremap <s-f> :Leaderf rg --cword
+nnoremap <space>ft :Leaderf rg --cword<CR>
+" nnoremap <space>fg :<C-U><C-R>=printf("Leaderf! rg -e %s --iglob *.c --iglob *.cc --iglob *.cpp --iglob *.cxx", expand("<cword>"))<CR><CR>
+nnoremap <space>fg :<C-U><C-R>=printf("Leaderf! rg -e %s -t cpp", expand("<cword>"))<CR><CR>
+nnoremap <space>fr :<C-U><C-R>=printf("Leaderf! rg -e %s -t cpp --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
+vnoremap <space>fs :<C-U><C-R>=printf("Leaderf! rg -e %s ", leaderf#Rg#visual())<CR><CR>
 
 """"""""""""""""""""""""""""""""""""""""
 " => examples
