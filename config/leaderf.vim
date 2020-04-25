@@ -173,6 +173,7 @@ nnoremap <s-f> :Leaderf! rg --cword<CR>
 nnoremap <m-g> :<C-U><C-R>=printf("Leaderf! rg -F -w %s -t cpp", expand("<cword>"))<CR><CR>
 nnoremap <m-r> :<C-U><C-R>=printf("Leaderf! rg -F -w %s -t cpp --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
 vnoremap <m-s> :<C-U><C-R>=printf("Leaderf! rg -F %s ", leaderf#Rg#visual())<CR><CR>
+nnoremap <c-O> :Leaderf rg --match-path --stayOpen --top<CR>
 
 """"""""""""""""""""""""""""""""""""""""
 " => examples
