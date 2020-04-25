@@ -63,7 +63,7 @@ if index(g:bundle_group, 'leaderf') >= 0
 		let g:Lf_ShortcutB = '<m-b>'
 
 		" CTRL+n 打开最近使用的文件 MRU，进行模糊匹配
-		noremap <space>p :LeaderfMru<cr>
+		noremap <m-p> :LeaderfMru<cr>
 
 		" ALT+p 打开函数列表
 		noremap <m-m> :LeaderfFunction<cr>
@@ -151,7 +151,7 @@ if index(g:bundle_group, 'leaderf') >= 0
 		noremap <c-o> :CtrlP<cr>
 
 		" CTRL+n 打开最近访问过的文件的匹配
-		noremap <space>p :CtrlPMRUFiles<cr>
+		noremap <m-p> :CtrlPMRUFiles<cr>
 
 		" ALT+p 显示当前文件的函数列表
 		noremap <c-m> :CtrlPFunky<cr>
@@ -169,12 +169,10 @@ nnoremap <leader>ff :Leaderf! filer<cr>
 """"""""""""""""""""""""""""""""""""""""
 " => ripgrep
 " grep on the fly, support both fuzzy and regex
-nnoremap <s-f> :Leaderf rg --cword
-nnoremap <space>ft :Leaderf rg --cword<CR>
-" nnoremap <space>fg :<C-U><C-R>=printf("Leaderf! rg -e %s --iglob *.c --iglob *.cc --iglob *.cpp --iglob *.cxx", expand("<cword>"))<CR><CR>
-nnoremap <space>fg :<C-U><C-R>=printf("Leaderf! rg -e %s -t cpp", expand("<cword>"))<CR><CR>
-nnoremap <space>fr :<C-U><C-R>=printf("Leaderf! rg -e %s -t cpp --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
-vnoremap <space>fs :<C-U><C-R>=printf("Leaderf! rg -e %s ", leaderf#Rg#visual())<CR><CR>
+nnoremap <s-f> :Leaderf! rg --cword<CR>
+nnoremap <m-g> :<C-U><C-R>=printf("Leaderf! rg -F -w %s -t cpp", expand("<cword>"))<CR><CR>
+nnoremap <m-r> :<C-U><C-R>=printf("Leaderf! rg -F -w %s -t cpp --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
+vnoremap <m-s> :<C-U><C-R>=printf("Leaderf! rg -F %s ", leaderf#Rg#visual())<CR><CR>
 
 """"""""""""""""""""""""""""""""""""""""
 " => examples
