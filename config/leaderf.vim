@@ -131,6 +131,14 @@ if index(g:bundle_group, 'leaderf') >= 0
 		        \ "Function": [["<ESC>", ':exec g:Lf_py "functionExplManager.quit()"<cr>']],
 		        \ }
 
+		" => ripgrep
+		" grep on the fly, support both fuzzy and regex
+		nnoremap <m-g> :<C-U><C-R>=printf("Leaderf! rg -F -w %s -t cpp", expand("<cword>"))<CR><CR>
+		nnoremap <m-r> :<C-U><C-R>=printf("Leaderf! rg -F -w %s -t cpp --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
+		vnoremap <m-s> :<C-U><C-R>=printf("Leaderf! rg -F %s ", leaderf#Rg#visual())<CR><CR>
+		nnoremap <c-s-o> :Leaderf rg --match-path --top --stayOpen<CR>
+		nnoremap <s-f> :Leaderf! rg --cword --match-path --top --stayOpen<CR>
+
 	else
 		" 不支持 python ，使用 CtrlP/ctrlp-funky 代替
 		" 忽略默认键位
@@ -167,46 +175,37 @@ endif
 nnoremap <leader>ff :Leaderf! filer<cr>
 
 """"""""""""""""""""""""""""""""""""""""
-" => ripgrep
-" grep on the fly, support both fuzzy and regex
-nnoremap <s-f> :Leaderf! rg --cword<CR>
-nnoremap <m-g> :<C-U><C-R>=printf("Leaderf! rg -F -w %s -t cpp", expand("<cword>"))<CR><CR>
-nnoremap <m-r> :<C-U><C-R>=printf("Leaderf! rg -F -w %s -t cpp --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
-vnoremap <m-s> :<C-U><C-R>=printf("Leaderf! rg -F %s ", leaderf#Rg#visual())<CR><CR>
-nnoremap <c-O> :Leaderf rg --match-path --stayOpen --top<CR>
-
-""""""""""""""""""""""""""""""""""""""""
 " => examples
 if 0
-" search word under cursor, the pattern is treated as regex, and enter normal mode directly
-noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+	" search word under cursor, the pattern is treated as regex, and enter normal mode directly
+	noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 
-" search word under cursor, the pattern is treated as regex,
-" append the result to previous search results.
-noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg --append -e %s ", expand("<cword>"))<CR>
+	" search word under cursor, the pattern is treated as regex,
+	" append the result to previous search results.
+	noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg --append -e %s ", expand("<cword>"))<CR>
 
-" search word under cursor literally only in current buffer
-noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg -F --current-buffer -e %s ", expand("<cword>"))<CR>
+	" search word under cursor literally only in current buffer
+	noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg -F --current-buffer -e %s ", expand("<cword>"))<CR>
 
-" search word under cursor literally in all listed buffers
-noremap <C-D> :<C-U><C-R>=printf("Leaderf! rg -F --all-buffers -e %s ", expand("<cword>"))<CR>
+	" search word under cursor literally in all listed buffers
+	noremap <C-D> :<C-U><C-R>=printf("Leaderf! rg -F --all-buffers -e %s ", expand("<cword>"))<CR>
 
-" search visually selected text literally, don't quit LeaderF after accepting an entry
-xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR>
+	" search visually selected text literally, don't quit LeaderF after accepting an entry
+	xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR>
 
-" recall last search. If the result window is closed, reopen it.
-noremap go :<C-U>Leaderf! rg --recall<CR>
+	" recall last search. If the result window is closed, reopen it.
+	noremap go :<C-U>Leaderf! rg --recall<CR>
 
 
-" search word under cursor in *.h and *.cpp files.
-noremap <Leader>a :<C-U><C-R>=printf("Leaderf! rg -e %s -g *.h -g *.cpp", expand("<cword>"))<CR>
-" the same as above
-noremap <Leader>a :<C-U><C-R>=printf("Leaderf! rg -e %s -g *.{h,cpp}", expand("<cword>"))<CR>
+	" search word under cursor in *.h and *.cpp files.
+	noremap <Leader>a :<C-U><C-R>=printf("Leaderf! rg -e %s -g *.h -g *.cpp", expand("<cword>"))<CR>
+	" the same as above
+	noremap <Leader>a :<C-U><C-R>=printf("Leaderf! rg -e %s -g *.{h,cpp}", expand("<cword>"))<CR>
 
-" search word under cursor in cpp and java files.
-noremap <Leader>b :<C-U><C-R>=printf("Leaderf! rg -e %s -t cpp -t java", expand("<cword>"))<CR>
+	" search word under cursor in cpp and java files.
+	noremap <Leader>b :<C-U><C-R>=printf("Leaderf! rg -e %s -t cpp -t java", expand("<cword>"))<CR>
 
-" search word under cursor in cpp files, exclude the *.hpp files
-noremap <Leader>c :<C-U><C-R>=printf("Leaderf! rg -e %s -t cpp -g !*.hpp", expand("<cword>"))<CR>
+	" search word under cursor in cpp files, exclude the *.hpp files
+	noremap <Leader>c :<C-U><C-R>=printf("Leaderf! rg -e %s -t cpp -g !*.hpp", expand("<cword>"))<CR>
 
 endif
