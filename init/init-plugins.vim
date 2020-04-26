@@ -17,7 +17,7 @@ if !exists('g:bundle_group')
 	let g:bundle_group = ['basic', 'tags', 'enhanced', 'filetypes', 'textobj']
 	let g:bundle_group += ['airline', 'nerdtree', 'ale', 'echodoc']
 	let g:bundle_group += ['leaderf', 'neoformat', 'coc']
-	let g:bundle_group += ['doxygen', 'snippets']
+	let g:bundle_group += ['doxygen', 'snippets', 'asynctasks']
 	" let g:bundle_group += ['deoplete', 'ncm2', 'lcn']
 endif
 
@@ -433,6 +433,15 @@ if index(g:bundle_group, 'snippets') >= 0
 	Plug 'honza/vim-snippets'
 	Plug 'SirVer/ultisnips'
 endif
+
+if index(g:bundle_group, 'asynctasks') >= 0
+	Plug 'skywind3000/asynctasks.vim'
+	Plug 'skywind3000/asyncrun.vim'
+
+	" quickfix window can be opened automatically
+	let g:asyncrun_open = 6
+endif
+
 "----------------------------------------------------------------------
 " 结束插件安装
 "----------------------------------------------------------------------

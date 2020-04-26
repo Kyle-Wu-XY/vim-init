@@ -83,8 +83,8 @@ if index(g:bundle_group, 'leaderf') >= 0
 		" ui 定制
 		let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
-		" noremap <m-g> :Leaderf --nowrap task<cr>
-		" inoremap <m-g> <esc>:Leaderf --nowrap task<cr>
+		noremap <m-t> :Leaderf --nowrap task<cr>
+		inoremap <m-t> <esc>:Leaderf --nowrap task<cr>
 
 		if has('gui_running')
 			noremap <c-f12> :Leaderf --nowrap task<cr>
@@ -136,7 +136,7 @@ if index(g:bundle_group, 'leaderf') >= 0
 		nnoremap <m-g> :<C-U><C-R>=printf("Leaderf! rg -F -w %s -t cpp", expand("<cword>"))<CR><CR>
 		nnoremap <m-r> :<C-U><C-R>=printf("Leaderf! rg -F -w %s -t cpp --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
 		vnoremap <m-s> :<C-U><C-R>=printf("Leaderf! rg -F %s ", leaderf#Rg#visual())<CR><CR>
-		nnoremap <c-s-o> :Leaderf rg --match-path --top --stayOpen<CR>
+		nnoremap <m-o> :Leaderf rg --match-path --top --stayOpen<CR>
 		nnoremap <s-f> :Leaderf! rg --cword --match-path --top --stayOpen<CR>
 
 	else
