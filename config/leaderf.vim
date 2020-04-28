@@ -75,7 +75,7 @@ if index(g:bundle_group, 'leaderf') >= 0
 		noremap <m-b> :LeaderfBuffer<cr>
 
 		" ALT+m 全局 tags 模糊匹配
-		noremap <c-s> :Leaderf tag --cword<cr>
+		noremap <m-,> :LeaderfTag<cr>
 
 		" 最大历史文件保存 2048 个
 		let g:Lf_MruMaxFiles = 2048
@@ -131,13 +131,17 @@ if index(g:bundle_group, 'leaderf') >= 0
 		        \ "Function": [["<ESC>", ':exec g:Lf_py "functionExplManager.quit()"<cr>']],
 		        \ }
 
+
+		nnoremap <leader>ss :Leaderf line --cword<CR>
+		nnoremap <leader>s, :Leaderf line --all --cword<CR>
+
 		" => ripgrep
 		" grep on the fly, support both fuzzy and regex
 		nnoremap <m-g> :<C-U><C-R>=printf("Leaderf! rg -F -w %s -t cpp", expand("<cword>"))<CR><CR>
 		nnoremap <m-r> :<C-U><C-R>=printf("Leaderf! rg -F -w %s -t cpp --iglob !%s.*", expand("<cword>"), expand("<cword>"))<CR><CR>
 		vnoremap <m-s> :<C-U><C-R>=printf("Leaderf! rg -F %s ", leaderf#Rg#visual())<CR><CR>
-		nnoremap <m-o> :Leaderf rg --match-path --top --stayOpen<CR>
-		nnoremap <s-f> :Leaderf! rg --cword --match-path --top --stayOpen<CR>
+		nnoremap <c-m-o> :Leaderf rg --match-path --top --stayOpen<CR>
+		nnoremap <m-f> :Leaderf! rg --cword --match-path --top --stayOpen<CR>
 
 	else
 		" 不支持 python ，使用 CtrlP/ctrlp-funky 代替
