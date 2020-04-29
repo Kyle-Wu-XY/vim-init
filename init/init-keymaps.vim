@@ -18,7 +18,7 @@
 "----------------------------------------------------------------------
 " With a map leader it's possible to do extra key combinations
 "----------------------------------------------------------------------
-let mapleader = "\<space>"
+" let mapleader = "\<space>"
 " let g:mapleader = "\<space>"
 " let maplocalleader = "\<space>"
 " let g:maplocalleader = "\<space>"
@@ -411,7 +411,7 @@ endif
 "----------------------------------------------------------------------
 " For Easily toggle between *.c* and *.h* buffers.
 "----------------------------------------------------------------------
-noremap <m-o> :A<cr>
+noremap <silent><m-o> :A<cr>
 
 "----------------------------------------------------------------------
 " For jump history
