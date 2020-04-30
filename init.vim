@@ -14,8 +14,35 @@ else
 	let s:loaded = 1
 endif
 
+" => system detection
+if has('win32') || has('win64') || has('win95') || has('win16')
+    let g:asc_uname = 'windows'
+elseif has('win32unix')
+    let g:asc_uname = 'cygwin'
+elseif has('unix') && (has('mac') || has('macunix'))
+    let g:asc_uname = 'darwin'
+elseif has('unix')
+    let s:uname = substitute(system("uname"), '\s*\n$', '', 'g')
+    if v:shell_error == 0 && match(s:uname, 'Linux') >= 0
+        let g:asc_uname = 'linux'
+    elseif v:shell_error == 0 && match(s:uname, 'FreeBSD') >= 0
+        let g:asc_uname = 'freebsd'
+    elseif v:shell_error == 0 && match(s:uname, 'Darwin') >= 0
+        let g:asc_uname = 'darwin'
+    else
+        let g:asc_uname = 'posix'
+    endif
+else
+    let g:asc_uname = 'posix'
+endif
+
+" => python3 support
 if has('nvim')
-	let g:python3_host_prog ='/home/cnkwu/.local/share/python3.8/bin/python3'
+    if 'windows' == g:asc_uname
+        let g:python3_host_prog ='C:/Python3_x64/python'
+    else
+        let g:python3_host_prog ='/home/cnkwu/.local/share/python3.8/bin/python3'
+    endif
 else
 	set pythonthreehome=/home/cnkwu/.local/share/python3.8/
 	set pythonthreedll=/home/cnkwu/.local/share/python3.8/lib/libpython3.8.so.1.0
