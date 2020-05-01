@@ -39,7 +39,7 @@ endif
 " => python3 support
 if has('nvim')
     if 'windows' == g:asc_uname
-        let g:python3_host_prog ='C:/Python3_x64/python'
+        " let g:python3_host_prog ='C:/Python3_x64/python'
     else
         let g:python3_host_prog ='/home/cnkwu/.local/share/python3.8/bin/python3'
     endif

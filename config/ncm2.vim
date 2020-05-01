@@ -1,5 +1,3 @@
-let g:python3_host_prog='/home/cnkwu/.local/share/python3.8/bin/python3.8'
-
 " enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()
 

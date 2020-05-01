@@ -6,7 +6,7 @@
 			"rootPatterns": [".ccls-root", "compile_commands.json"],
 			"initializationOptions": {
 				"cache": {
-					"directory": "/home/cnkwu/.cache/ccls"
+					"directory": ""
 				},
 				"client": {
 					"snippetSupport": true
