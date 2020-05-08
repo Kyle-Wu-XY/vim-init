@@ -132,6 +132,11 @@ if index(g:bundle_group, 'leaderf') >= 0
 		        \ }
 
 
+
+		" => command list 
+		nnoremap <silent><c-m-p> :LeaderfCommand<CR>
+
+		" => helm-swoop
 		nnoremap <leader>ss :Leaderf line --cword<CR>
 		nnoremap <leader>s, :Leaderf line --all --cword<CR>
 
