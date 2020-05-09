@@ -348,6 +348,7 @@ if index(g:bundle_group, 'leaderf') >= 0
 		" 如果 vim 支持 python 则启用  Leaderf
 		Plug 'Yggdroot/LeaderF', { 'do': './install.sh'}
 		Plug 'tamago324/LeaderF-filer'
+		Plug 'Yggdroot/LeaderF-marks'
 	else
 		" 不支持 python ，使用 CtrlP 代替
 		Plug 'ctrlpvim/ctrlp.vim'
