@@ -126,6 +126,13 @@ if index(g:bundle_group, 'basic') >= 0
 	" Quoting/parenthesizing made simple
 	Plug 'tpope/vim-surround'
 
+	" A simple, easy-to-use Vim alignment plugin
+    Plug 'junegunn/vim-easy-align'
+	" Start interactive EasyAlign in visual mode (e.g. vipga)
+	xmap ga <Plug>(EasyAlign)
+	" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+	nmap ga <Plug>(EasyAlign)
+
 	" 记住你上次所使用的补全方式，下次再补全时，直接使用TAB
 	Plug 'metalelf0/supertab'
 	let g:SuperTabRetainCompletionType = 2
