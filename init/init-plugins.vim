@@ -125,6 +125,9 @@ if index(g:bundle_group, 'basic') >= 0
 
 	" Quoting/parenthesizing made simple
 	Plug 'tpope/vim-surround'
+	 
+	" Pairs of handy bracket mappings
+	Plug 'tpope/vim-unimpaired'
 
 	" A simple, easy-to-use Vim alignment plugin
     Plug 'junegunn/vim-easy-align'
@@ -166,6 +169,9 @@ if index(g:bundle_group, 'basic') >= 0
 	" Git 支持
 	Plug 'tpope/vim-fugitive'
 	LoadScript config/fugitive.vim
+
+	" git commit browser
+	Plug 'junegunn/gv.vim'
 endif
 
 
