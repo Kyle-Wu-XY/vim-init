@@ -450,3 +450,21 @@ let g:multi_cursor_quit_key            = '<Esc>'
 """"""""""""""""""""""""""""""""""""""""
 nnoremap <m-/> <c-x><c-n>
 
+""""""""""""""""""""""""""""""""""""""""
+" => diff
+""""""""""""""""""""""""""""""""""""""""
+if &diff
+	map gs :call IwhiteToggle()<CR>
+	function! IwhiteToggle()
+		if &diffopt =~ 'iwhite'
+			set diffopt-=iwhite
+			syntax on
+			colo desert256
+		else
+			set diffopt+=iwhite
+			syntax off
+			colo challenger_deep
+		endif
+	endfunction
+endif
+
