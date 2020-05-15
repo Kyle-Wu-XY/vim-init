@@ -109,7 +109,7 @@ if index(g:bundle_group, 'leaderf') >= 0
 
 		" 模糊匹配忽略扩展名
 		let g:Lf_WildIgnore = {
-		            \ 'dir': ['.svn','.git','.hg'],
+		            \ 'dir': ['.svn','.git','.hg', '.reserved-codes'],
 		            \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
 		            \ }
 
