@@ -19,18 +19,34 @@ set sw=4
 " 设置 TAB 宽度
 set ts=4
 
-" 禁止展开 tab (noexpandtab)
+" 禁止展开 tab (noexpandtab) - 不用space替代tab的输入
 set noet
 
 " 如果后面设置了 expandtab 那么展开 tab 为多少字符
 set softtabstop=4
 
+" :retab changes *everything*, not just start of lines
+fun! Retab(expandtab)
+    let l:spaces = repeat(' ', &tabstop)
+
+    " Replace tabs with spaces
+    if a:expandtab
+        silent! execute '%substitute#^\%(' . l:spaces . '\)\+#\=repeat("\t", len(submatch(0)) / &tabstop)#e'
+    " Replace spaces with tabs
+    else
+        silent! execute '%substitute#^\%(\t\)\+#\=repeat("' . l:spaces . '", len(submatch(0)))#e'
+    endif
+endfun
+
+" Buffer 保存前自动将Tab转换为Space
+autocmd BufWritePre * :call Retab(&expandtab)
+
 
 augroup PythonTab
-	au!
-	" 如果你需要 python 里用 tab，那么反注释下面这行字，否则vim会在打开py文件
-	" 时自动设置成空格缩进。
-	"au FileType python setlocal shiftwidth=4 tabstop=4 noexpandtab
+    au!
+    " 如果你需要 python 里用 tab，那么反注释下面这行字，否则vim会在打开py文件
+    " 时自动设置成空格缩进。
+    "au FileType python setlocal shiftwidth=4 tabstop=4 noexpandtab
 augroup END
 
 
