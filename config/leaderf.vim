@@ -151,7 +151,7 @@ if index(g:bundle_group, 'leaderf') >= 0
         nnoremap <m-f> :Leaderf! rg --cword --stayOpen<CR>
 
         " grep on the fly
-        " <path>/<file>.[h|hpp]::<function>[()] - declare
+        " <path>/<file>.[h|hpp]::<function>); - declare
         " <path>/<file>.[cc|cxx|cpp]::::<function>[()] - definition
         nnoremap <c-m-o> :Leaderf rg --match-path --stayOpen<CR>
         
