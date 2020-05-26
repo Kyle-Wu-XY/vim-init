@@ -24,6 +24,23 @@
 " let g:maplocalleader = "\<space>"
 
 "----------------------------------------------------------------------
+" 快速调整窗口大小
+"----------------------------------------------------------------------
+nnoremap <silent> <tab><right> :vertical res +2<CR>
+nnoremap <silent> <tab><left> :vertical res -2<CR>
+nnoremap <silent> <tab><up> :res +2<CR>
+nnoremap <silent> <tab><down> :res -2<CR>
+nnoremap <silent> <tab>h :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+nnoremap <silent> <tab>l :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <silent> <tab>k :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <tab>j :exe "resize " . (winheight(0) * 2/3)<CR>
+
+"----------------------------------------------------------------------
+" 快速移动焦点
+"----------------------------------------------------------------------
+noremap <tab><tab> <c-w>w
+
+"----------------------------------------------------------------------
 " INSERT 模式下使用 EMACS 键位
 "----------------------------------------------------------------------
 inoremap <c-a> <home>
