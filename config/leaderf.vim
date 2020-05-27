@@ -108,8 +108,9 @@ if index(g:bundle_group, 'leaderf') >= 0
         let g:Lf_NoChdir = 1 " ??
 
         " 模糊匹配忽略扩展名
+        let g:Lf_UseVersionControlTool = 0 " 配合此选项才能忽略已经加入git repo的目录
         let g:Lf_WildIgnore = {
-                    \ 'dir': ['.svn','.git','.hg', 'reserved*'],
+                    \ 'dir': ['.svn','.git','.hg', 'reserved-codes'],
                     \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
                     \ }
 
