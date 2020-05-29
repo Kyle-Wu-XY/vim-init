@@ -386,10 +386,12 @@ if index(g:bundle_group, 'neoformat') >= 0
     Plug 'sbdchd/neoformat'
 
     " run a formatter on save
+    if 0 " many project hasn't auto format settings, this feature not friendly to git diff
     augroup fmt
         autocmd!
         autocmd BufWritePre * undojoin | Neoformat
     augroup END
+    endif
 endif
 
 if index(g:bundle_group, 'lcn') >= 0
