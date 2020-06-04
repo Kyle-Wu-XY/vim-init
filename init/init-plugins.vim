@@ -9,7 +9,6 @@
 " vim: set ts=4 sw=4 tw=78 noet :
 
 
-
 "----------------------------------------------------------------------
 " 默认情况下的分组，可以再前面覆盖之
 "----------------------------------------------------------------------
@@ -17,13 +16,7 @@ if !exists('g:bundle_group')
     let g:bundle_group = ['basic', 'tags', 'enhanced', 'filetypes', 'textobj']
     let g:bundle_group += ['airline', 'nerdtree', 'ale', 'echodoc']
     let g:bundle_group += ['doxygen', 'snippets', 'asynctasks']
-    let g:bundle_group += ['leaderf', 'coc']
-
-    let s:hostname = system('hostname')
-    if stridx(s:hostname, 'Android') >= 0
-    else
-        let g:bundle_group += ['neoformat']
-    endif
+    let g:bundle_group += ['leaderf', 'coc', 'neoformat']
 
     " Function dumplicate with coc/leaderf, just for reference in future
     " let g:bundle_group += ['deoplete', 'ncm2', 'lcn']
@@ -69,6 +62,9 @@ Plug 'chrisbra/vim-diff-enhanced'
 
 " True Sublime Text style multiple selections for Vim
 Plug 'terryma/vim-multiple-cursors'
+" Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+LoadScript config/multi-cursors.vim
+
 
 " Easily toggle between *.c* and *.h* buffers.
 Plug 'LucHermitte/lh-vim-lib'

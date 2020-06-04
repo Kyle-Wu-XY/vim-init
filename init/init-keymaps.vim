@@ -452,18 +452,6 @@ let g:mwDefaultHighlightingPalette = 'maximum'
 "[count]<Leader>/        Jump to the next occurrence of ANY mark.
 
 """"""""""""""""""""""""""""""""""""""""
-" => Plugin 'vim-multiple-cursors'
-""""""""""""""""""""""""""""""""""""""""
-let g:multi_cursor_start_word_key      = 'gh'
-let g:multi_cursor_select_all_word_key = 'ggh'
-let g:multi_cursor_start_key           = 'g<C-n>'
-let g:multi_cursor_select_all_key      = 'g<A-n>'
-let g:multi_cursor_next_key            = 'j'
-let g:multi_cursor_prev_key            = 'k'
-let g:multi_cursor_skip_key            = 'l'
-let g:multi_cursor_quit_key            = '<Esc>'
-
-""""""""""""""""""""""""""""""""""""""""
 " => Complete-
 """"""""""""""""""""""""""""""""""""""""
 nnoremap <m-/> <c-x><c-n>

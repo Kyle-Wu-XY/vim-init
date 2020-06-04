@@ -9,9 +9,9 @@
 
 " 防止重复加载
 if get(s:, 'loaded', 0) != 0
-	finish
+    finish
 else
-	let s:loaded = 1
+    let s:loaded = 1
 endif
 
 " => system detection
@@ -44,8 +44,8 @@ if has('nvim')
         let g:python3_host_prog ='/home/cnkwu/.local/share/python3.8/bin/python3'
     endif
 else
-	set pythonthreehome=/home/cnkwu/.local/share/python3.8/
-	set pythonthreedll=/home/cnkwu/.local/share/python3.8/lib/libpython3.8.so.1.0
+    set pythonthreehome=/home/cnkwu/.local/share/python3.8/
+    set pythonthreedll=/home/cnkwu/.local/share/python3.8/lib/libpython3.8.so.1.0
 endif
 
 " 取得本文件所在的目录
@@ -66,6 +66,15 @@ exec 'set rtp+='.g:home
 " 将 ~/.vim 目录加入 runtimepath (有时候 vim 不会自动帮你加入）
 set rtp+=~/.vim
 
+function! IsHostNameContain(name)
+    let l:hostname = system('hostname')
+
+    if stridx(l:hostname, a:name) >= 0
+        return 1
+    else
+        return 0
+    endif
+endfunc
 
 "----------------------------------------------------------------------
 " 模块加载
