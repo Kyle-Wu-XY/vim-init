@@ -61,9 +61,9 @@ Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'chrisbra/vim-diff-enhanced'
 
 " True Sublime Text style multiple selections for Vim
-Plug 'terryma/vim-multiple-cursors'
-" Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-LoadScript config/multi-cursors.vim
+" Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+" LoadScript config/multi-cursors.vim
 
 
 " Easily toggle between *.c* and *.h* buffers.
