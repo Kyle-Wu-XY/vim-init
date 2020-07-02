@@ -129,7 +129,7 @@ if index(g:bundle_group, 'basic') >= 0
 
     " Quoting/parenthesizing made simple
     Plug 'tpope/vim-surround'
-     
+
     " Pairs of handy bracket mappings
     Plug 'tpope/vim-unimpaired'
 
@@ -212,6 +212,19 @@ if index(g:bundle_group, 'enhanced') >= 0
     map <m--> <Plug>(expand_region_shrink)
 endif
 
+
+"----------------------------------------------------------------------
+" helm-swoop
+"----------------------------------------------------------------------
+if index(g:bundle_group, 'swoop') >= 0
+    Plug 'pelodelfuego/vim-swoop'
+    let g:swoopUseDefaultKeyMap = 0
+
+    nmap <Leader>ss :call Swoop()<CR>
+    vmap <Leader>ss :call SwoopSelection()<CR>
+    nmap <Leader>s, :call SwoopMulti()<CR>
+    vmap <Leader>s, :call SwoopMultiSelection()<CR>
+endif
 
 "----------------------------------------------------------------------
 " 自动生成 ctags/gtags，并提供自动索引功能
