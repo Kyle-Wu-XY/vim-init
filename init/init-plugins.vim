@@ -440,7 +440,7 @@ endif
 
 if index(g:bundle_group, 'coc') >= 0
     " Use release branch (Recommend)
-    Plug 'neoclide/coc.nvim', {'branch': 'release', 'tag': '*', 'do': { -> coc#util#install()}}
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     " Or latest tag
     " Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
