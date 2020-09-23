@@ -188,7 +188,9 @@ if index(g:bundle_group, 'enhanced') >= 0
     Plug 'terryma/vim-expand-region'
 
     " 快速文件搜索
-    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    set rtp+=~/.local/bin/fzf
 
     " 给不同语言提供字典补全，插入模式下 c-x c-k 触发
     Plug 'asins/vim-dict'

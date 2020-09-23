@@ -397,7 +397,7 @@ endif
 "----------------------------------------------------------------------
 noremap <silent><m-;> :call quickui#tools#preview_tag('')<cr>
 noremap <silent><m-:> :PreviewClose<cr>
-nnoremap <silent><m-a> :PreviewSignature<cr>
+nnoremap <silent><m-i> :PreviewSignature<cr>
 inoremap <silent><m-a> <c-\><c-o>:PreviewSignature<cr>
 
 noremap <silent><tab>; :PreviewGoto edit<cr>
