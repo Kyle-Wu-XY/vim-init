@@ -189,8 +189,11 @@ if index(g:bundle_group, 'enhanced') >= 0
 
     " 快速文件搜索
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-    set rtp+=~/.local/bin/fzf
+    " Plug 'junegunn/fzf.vim'
+    " set rtp+=~/.local/bin/fzf
+    
+    Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
+    LoadScript config/fzf-preview.vim
 
     " 给不同语言提供字典补全，插入模式下 c-x c-k 触发
     Plug 'asins/vim-dict'
