@@ -40,7 +40,11 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 LoadScript config/easymotion.vim
 
 " 多种颜色高亮符号
-Plug 'Yggdroot/vim-mark'
+" Plug 'Yggdroot/vim-mark'
+Plug 'inkarkat/vim-mark'
+Plug 'inkarkat/vim-MarkMarkup'
+Plug 'inkarkat/vim-ingo-library'
+Plug 'inkarkat/vim-PatternsOnText'
 
 " 文件浏览器，代替 netrw
 Plug 'justinmk/vim-dirvish'
