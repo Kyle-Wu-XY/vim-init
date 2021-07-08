@@ -39,6 +39,9 @@ Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 LoadScript config/easymotion.vim
 
+" 字体大小缩放
+Plug 'drmikehenry/vim-fontsize'
+
 " 多种颜色高亮符号
 " Plug 'Yggdroot/vim-mark'
 Plug 'inkarkat/vim-mark'
