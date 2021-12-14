@@ -27,7 +27,7 @@ set softtabstop=4
 
 " :retab changes *everything*, not just start of lines
 fun! Retab(expandtab)
-    if &filetype != 'make'
+    if &filetype != 'make' && &filetype != 'python'
         let l:spaces = repeat(' ', &tabstop)
 
         " Replace tabs with spaces
