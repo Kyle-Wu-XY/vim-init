@@ -16,7 +16,11 @@ if !exists('g:bundle_group')
     let g:bundle_group = ['basic', 'tags', 'enhanced', 'filetypes', 'textobj']
     let g:bundle_group += ['airline', 'nerdtree', 'ale', 'echodoc']
     let g:bundle_group += ['doxygen', 'snippets', 'asynctasks']
-    let g:bundle_group += ['leaderf', 'coc', 'neoformat']
+    let g:bundle_group += ['leaderf', 'neoformat']
+
+    if has('win32') == 0 && has('win64') == 0 && has('win32unix') == 0
+        let g:bundle_group += ['coc']
+    endif
 
     " Function dumplicate with coc/leaderf, just for reference in future
     " let g:bundle_group += ['deoplete', 'ncm2', 'lcn']

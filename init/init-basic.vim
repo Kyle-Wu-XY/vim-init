@@ -20,6 +20,12 @@ set nocompatible
 " 设置 Backspace 键模式
 set bs=eol,start,indent
 
+" 关闭菜单栏
+set guioptions-=m
+
+" 关闭工具栏
+set guioptions-=T
+
 " 自动缩进
 set autoindent
 
