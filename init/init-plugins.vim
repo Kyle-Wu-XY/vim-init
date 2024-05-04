@@ -54,8 +54,8 @@ Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-PatternsOnText'
 
 " 文件编码自动检测
-Plug 'mbbill/fencview'
-let g:fencview_autodetect = 1
+" Plug 'mbbill/fencview'
+" let g:fencview_autodetect = 1
 
 " 文件浏览器，代替 netrw
 Plug 'justinmk/vim-dirvish'
